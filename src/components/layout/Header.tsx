@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Plane, ChevronDown, User, Search } from "lucide-react";
+import { Menu, X, ChevronDown, User, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -50,18 +50,13 @@ export function Header() {
       <div className="container-luxury">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-gold flex items-center justify-center">
-              <Plane className="w-5 h-5 text-luxury-dark transform -rotate-45" />
-            </div>
-            <div>
-              <span className="text-xl font-display font-semibold text-white tracking-wide">
-                Luxe
-              </span>
-              <span className="text-xl font-display font-light text-gold-500 tracking-wide">
-                Voyages
-              </span>
-            </div>
+          <Link href="/" className="group">
+            <span className="text-xl font-display font-light tracking-[0.15em] text-white uppercase">
+              Luxe
+            </span>
+            <span className="text-xl font-display font-light tracking-[0.15em] text-gold-500 uppercase">
+              {" "}Voyages
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

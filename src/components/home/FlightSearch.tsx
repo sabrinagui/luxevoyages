@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plane, ArrowRightLeft, Calendar, Users, Search, MapPin } from "lucide-react";
+import { Calendar, Users, Search, MapPin } from "lucide-react";
 
 type TripType = "roundtrip" | "oneway" | "multi";
 type CabinClass = "economy" | "premium" | "business" | "first";
@@ -14,21 +14,15 @@ export function FlightSearch() {
   return (
     <section className="relative -mt-16 sm:-mt-24 z-20 px-4 md:px-8">
       <div className="container-luxury">
-        <div className="bg-luxury-charcoal/95 sm:bg-luxury-charcoal/80 backdrop-blur-xl border border-white/10 p-4 sm:p-6 md:p-8 lg:p-12">
+        <div className="bg-luxury-charcoal/95 backdrop-blur-xl border border-white/10 p-5 sm:p-8 md:p-10">
           {/* Header */}
-          <div className="flex flex-col gap-4 mb-6 md:mb-8">
-            <div className="flex items-center gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-gold flex items-center justify-center flex-shrink-0">
-                <Plane className="w-5 h-5 sm:w-6 sm:h-6 text-luxury-dark" />
-              </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-display text-white">Find Your Flight</h2>
-                <p className="text-white/60 text-xs sm:text-sm">Search from over 500 airlines worldwide</p>
-              </div>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8 border-b border-white/10 pb-5 sm:pb-6">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-display text-white tracking-wide">Find Your Flight</h2>
+              <p className="text-white/40 text-[10px] mt-1 uppercase tracking-widest">Search from over 500 airlines worldwide</p>
             </div>
-
-            {/* Trip Type Selector */}
-            <div className="flex gap-1 sm:gap-2 p-1 bg-white/5 rounded-none overflow-x-auto">
+            {/* Trip Type */}
+            <div className="flex gap-1 p-1 bg-white/5 self-start sm:self-auto">
               {[
                 { value: "roundtrip", label: "Round Trip" },
                 { value: "oneway", label: "One Way" },
@@ -37,10 +31,10 @@ export function FlightSearch() {
                 <button
                   key={type.value}
                   onClick={() => setTripType(type.value as TripType)}
-                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                  className={`px-3 py-1.5 text-xs font-medium transition-all duration-300 whitespace-nowrap ${
                     tripType === type.value
                       ? "bg-gold-500 text-luxury-dark"
-                      : "text-white/60 hover:text-white"
+                      : "text-white/50 hover:text-white"
                   }`}
                 >
                   {type.label}
@@ -49,80 +43,80 @@ export function FlightSearch() {
             </div>
           </div>
 
-          {/* Search Form */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 mb-4 sm:mb-6">
+          {/* Search Form — responsive grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5 mb-5 sm:mb-6">
             {/* From */}
-            <div className="relative group">
-              <label className="absolute -top-2 sm:-top-2.5 left-3 sm:left-4 bg-luxury-charcoal px-1.5 sm:px-2 text-[10px] sm:text-xs text-gold-500 uppercase tracking-wider z-10">
+            <div>
+              <label className="block text-[10px] text-gold-500 uppercase tracking-widest mb-1.5">
                 From
               </label>
               <div className="relative">
-                <MapPin className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-white/40" />
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                 <input
                   type="text"
                   placeholder="City or Airport"
-                  className="input-luxury pl-10 sm:pl-12"
+                  className="input-luxury pl-9 text-sm"
                   defaultValue="New York (JFK)"
                 />
               </div>
             </div>
 
             {/* To */}
-            <div className="relative group">
-              <label className="absolute -top-2 sm:-top-2.5 left-3 sm:left-4 bg-luxury-charcoal px-1.5 sm:px-2 text-[10px] sm:text-xs text-gold-500 uppercase tracking-wider z-10">
+            <div>
+              <label className="block text-[10px] text-gold-500 uppercase tracking-widest mb-1.5">
                 To
               </label>
               <div className="relative">
-                <MapPin className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-white/40" />
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                 <input
                   type="text"
                   placeholder="City or Airport"
-                  className="input-luxury pl-10 sm:pl-12"
+                  className="input-luxury pl-9 text-sm"
                   defaultValue="Paris (CDG)"
                 />
               </div>
             </div>
 
-            {/* Departure Date */}
-            <div className="relative group">
-              <label className="absolute -top-2 sm:-top-2.5 left-3 sm:left-4 bg-luxury-charcoal px-1.5 sm:px-2 text-[10px] sm:text-xs text-gold-500 uppercase tracking-wider z-10">
+            {/* Departure */}
+            <div>
+              <label className="block text-[10px] text-gold-500 uppercase tracking-widest mb-1.5">
                 Departure
               </label>
               <div className="relative">
-                <Calendar className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-white/40" />
+                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                 <input
                   type="date"
-                  className="input-luxury pl-10 sm:pl-12"
+                  className="input-luxury pl-9 text-sm"
                   defaultValue="2026-02-15"
                 />
               </div>
             </div>
 
-            {/* Return Date */}
-            <div className="relative group">
-              <label className="absolute -top-2 sm:-top-2.5 left-3 sm:left-4 bg-luxury-charcoal px-1.5 sm:px-2 text-[10px] sm:text-xs text-gold-500 uppercase tracking-wider z-10">
+            {/* Return */}
+            <div>
+              <label className="block text-[10px] text-gold-500 uppercase tracking-widest mb-1.5">
                 Return
               </label>
               <div className="relative">
-                <Calendar className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-white/40" />
+                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                 <input
                   type="date"
-                  className="input-luxury pl-10 sm:pl-12"
+                  className="input-luxury pl-9 text-sm"
                   defaultValue="2026-02-22"
                   disabled={tripType === "oneway"}
                 />
               </div>
             </div>
 
-            {/* Passengers */}
-            <div className="relative group sm:col-span-2 lg:col-span-1">
-              <label className="absolute -top-2 sm:-top-2.5 left-3 sm:left-4 bg-luxury-charcoal px-1.5 sm:px-2 text-[10px] sm:text-xs text-gold-500 uppercase tracking-wider z-10">
+            {/* Passengers — full width on mobile, half on sm */}
+            <div>
+              <label className="block text-[10px] text-gold-500 uppercase tracking-widest mb-1.5">
                 Passengers
               </label>
               <div className="relative">
-                <Users className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-white/40" />
+                <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                 <select
-                  className="input-luxury pl-10 sm:pl-12 appearance-none cursor-pointer"
+                  className="input-luxury pl-9 text-sm appearance-none cursor-pointer"
                   value={passengers}
                   onChange={(e) => setPassengers(Number(e.target.value))}
                 >
@@ -137,9 +131,8 @@ export function FlightSearch() {
           </div>
 
           {/* Cabin Class & Search */}
-          <div className="flex flex-col gap-4 sm:gap-6">
-            {/* Cabin Class */}
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 pt-4 border-t border-white/10">
+            <div className="flex flex-wrap gap-2">
               {[
                 { value: "economy", label: "Economy" },
                 { value: "premium", label: "Premium" },
@@ -149,10 +142,10 @@ export function FlightSearch() {
                 <button
                   key={cabin.value}
                   onClick={() => setCabinClass(cabin.value as CabinClass)}
-                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium border transition-all duration-300 ${
+                  className={`px-3 py-1.5 text-xs font-medium border transition-all duration-300 ${
                     cabinClass === cabin.value
                       ? "border-gold-500 text-gold-500"
-                      : "border-white/20 text-white/60 hover:border-white/40"
+                      : "border-white/15 text-white/40 hover:border-white/30 hover:text-white/70"
                   }`}
                 >
                   {cabin.label}
@@ -160,9 +153,8 @@ export function FlightSearch() {
               ))}
             </div>
 
-            {/* Search Button */}
-            <button className="btn-primary w-full flex items-center justify-center gap-2">
-              <Search className="w-5 h-5" />
+            <button className="btn-primary flex items-center gap-2 sm:ml-auto w-full sm:w-auto justify-center">
+              <Search className="w-4 h-4" />
               Search Flights
             </button>
           </div>

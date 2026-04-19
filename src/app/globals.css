@@ -53,11 +53,11 @@
   }
 
   .heading-display {
-    @apply font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight;
+    @apply font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide;
   }
 
   .heading-section {
-    @apply font-display text-2xl sm:text-3xl md:text-4xl font-light tracking-tight;
+    @apply font-display text-2xl sm:text-3xl md:text-4xl font-light tracking-wide;
   }
 
   .text-gradient-gold {

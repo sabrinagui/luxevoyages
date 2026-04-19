@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import Link from "next/link";
 
 const heroSlides = [
@@ -112,14 +112,6 @@ export function HeroSection() {
             }`}
           />
         ))}
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-6 sm:bottom-12 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden sm:block">
-        <div className="flex flex-col items-center gap-2 text-white/60">
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-5 h-5" />
-        </div>
       </div>
 
       {/* Side Stats */}
